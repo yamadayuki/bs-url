@@ -1,0 +1,28 @@
+{
+  "name": "@yamadayuki/bs-url",
+  "description": "url module bindings for ReasonML",
+  "version": "0.1.0",
+  "author": "yamadayuki",
+  "bugs": "https://github.com/yamadayuki/bs-url/issues",
+  "devDependencies": {
+    "bs-platform": "^2.2.0"
+  },
+  "homepage": "https://github.com/yamadayuki/bs-url",
+  "keywords": [
+    "BuckleScript",
+    "ReasonML",
+    "node",
+    "url",
+    "whatwg"
+  ],
+  "license": "MIT",
+  "main": "lib/js/src/URL.bs.js",
+  "repository": {
+    "url": "https://github.com/yamadayuki/bs-url"
+  },
+  "scripts": {
+    "build": "bsb -make-world",
+    "clean": "bsb -clean-world",
+    "start": "bsb -make-world -w"
+  }
+}
