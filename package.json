@@ -1,7 +1,7 @@
 {
   "name": "@yamadayuki/bs-url",
   "description": "url module bindings for ReasonML",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "author": "yamadayuki",
   "bugs": "https://github.com/yamadayuki/bs-url/issues",
   "devDependencies": {
@@ -23,6 +23,10 @@
   "scripts": {
     "build": "bsb -make-world",
     "clean": "bsb -clean-world",
+    "release": "npm run release-patch",
+    "release-major": "npm version major && git push origin master --tags && npm publish --access=public",
+    "release-minor": "npm version minor && git push origin master --tags && npm publish --access=public",
+    "release-patch": "npm version patch && git push origin master --tags && npm publish --access=public",
     "start": "bsb -make-world -w"
   }
 }
