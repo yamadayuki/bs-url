@@ -1,18 +1,60 @@
-# Basic Reason Template
+# bs-url
 
-Hello! This project allows you to quickly get started with Reason and BuckleScript. If you wanted a more sophisticated version, try the `react` template (`bsb -theme react -init .`).
+`url` module bindings for [BuckleScript](https://github.com/bloomberg/bucklescript) in [Reason](https://github.com/facebook/reason).
 
-# Build
+# Installation
+
+1. Install `@yamadayuki/bs-url`
+
+```sh
+$ npm install --save @yamadayuki/bs-url
+```
+
+2. Add `@yamadayuki/bs-url` to `bs-dependencies` section of `bsconfig.json`.
+
+# Usage
+
+Create URL object.
+
+```reason
+let myURL = URL.make("https://example.com");
+Js.log(myURL);
+/* Prints https://example.com */
+
+let otherURL = URL.make("/foo", "https://example.com");
+Js.log(otherURL);
+/* Prints https://example.com/foo */
+```
+
+Get member in URL object.
+
+```reason
+URL.make("https://example.com/foo#bar")
+|> URL.hash
+|> Js.log
+/* Prints #bar */
+```
+
+Resove a target URL relative to a base URL.
+
+```reason
+URL.resolve("https://example.com/", "/foo") /* https://example.com/foo */
+```
+
+# Contributing
+
+### Build
+
 ```
 npm run build
 ```
 
-# Build + Watch
+### Build + Watch
 
 ```
 npm run start
 ```
 
+### Editor
 
-# Editor
 If you use `vscode`, Press `Windows + Shift + B` it will build automatically
