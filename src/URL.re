@@ -47,5 +47,3 @@ external formatWithOption : (t, 'a) => t = "format";
 [@bs.module "url"] [@bs.val] external parse : string => t = "";
 
 [@bs.module "url"] [@bs.val] external resolve : (string, string) => t = "";
-
-Js.log(resolve("http://example.com", "one"));
