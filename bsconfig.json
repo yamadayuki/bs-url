@@ -14,7 +14,7 @@
   "warnings": {
     "error": "+101"
   },
-  "namespace": true,
+  "namespace": false,
   "bsc-flags": ["-bs-gen-tds"],
   "refmt": 3
 }
