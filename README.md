@@ -41,6 +41,10 @@ Resove a target URL relative to a base URL.
 URL.resolve("https://example.com/", "/foo") /* https://example.com/foo */
 ```
 
+# TODO
+
+* Support `URLSearchParams`
+
 # Contributing
 
 ### Build
