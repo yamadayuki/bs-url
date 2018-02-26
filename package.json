@@ -9,9 +9,9 @@
   },
   "homepage": "https://github.com/yamadayuki/bs-url",
   "keywords": [
-    "BuckleScript",
-    "ReasonML",
+    "bucklescript",
     "node",
+    "reason",
     "url",
     "whatwg"
   ],
