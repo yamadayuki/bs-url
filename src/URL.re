@@ -26,7 +26,8 @@ external makeWithBase : (string, string) => t = "URL";
 
 [@bs.get] external search : t => string = "";
 
-/* TODO: [@bs.get] external searchParams : t => string = ""; */
+[@bs.get] external searchParams : t => URLSearchParams.t = "";
+
 [@bs.get] external username : t => string = "";
 
 /* Instance Methods */
