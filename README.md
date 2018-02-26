@@ -41,9 +41,22 @@ Resove a target URL relative to a base URL.
 URL.resolve("https://example.com/", "/foo") /* https://example.com/foo */
 ```
 
+Create URLSearchParams object.
+
+```reason
+/* from String */
+let params0 = URLSearchParmas.make("user=abc&query=xyz");
+
+/* from Object */
+let params1 = URLSearchParmas.makeWithObject({"user": "abc", "query": [|"first", "second"|]});
+
+/* from Array */
+let params2 = URLSearchParmas.makeWithArray([|("user", "abc"), ("query", "first"), ("query", "second")|])
+```
+
 # TODO
 
-* Support `URLSearchParams`
+* ~~Support `URLSearchParams`~~ Done.
 
 # Contributing
 

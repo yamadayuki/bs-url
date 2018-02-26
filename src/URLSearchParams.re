@@ -31,4 +31,4 @@ external makeWithArray : array(pair('a)) => t = "URLSearchParams";
 [@bs.send] external sort : t => unit = "";
 
 [@bs.send] external toString : t => string = "";
-/* values */
+/* TODO: values */
