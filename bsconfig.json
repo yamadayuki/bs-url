@@ -15,6 +15,6 @@
     "error": "+101"
   },
   "namespace": false,
-  "bsc-flags": ["-bs-gen-tds"],
+  "bsc-flags": [],
   "refmt": 3
 }
