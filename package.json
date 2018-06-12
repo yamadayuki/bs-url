@@ -5,6 +5,7 @@
   "author": "yamadayuki",
   "bugs": "https://github.com/yamadayuki/bs-url/issues",
   "devDependencies": {
+    "@glennsl/bs-jest": "^0.4.2",
     "bs-platform": "^3.1.5"
   },
   "homepage": "https://github.com/yamadayuki/bs-url",
@@ -21,12 +22,15 @@
     "url": "https://github.com/yamadayuki/bs-url"
   },
   "scripts": {
+    "prebuild": "npm run clean",
     "build": "bsb -make-world",
     "clean": "bsb -clean-world",
     "release": "npm run release-patch",
     "release-major": "npm version major && git push origin master --tags && npm publish --access=public",
     "release-minor": "npm version minor && git push origin master --tags && npm publish --access=public",
     "release-patch": "npm version patch && git push origin master --tags && npm publish --access=public",
-    "start": "bsb -make-world -w"
+    "start": "bsb -make-world -w",
+    "pretest": "npm run build",
+    "test": "jest"
   }
 }
