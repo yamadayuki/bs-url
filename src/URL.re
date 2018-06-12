@@ -40,7 +40,7 @@ external makeWithBase : (string, string) => t = "URL";
 
 [@bs.module "url"] [@bs.val] external domainToUnicode : string => string = "";
 
-[@bs.module "url"] [@bs.val] external format : t => t = "";
+[@bs.module "url"] [@bs.val] external format_ : t => string = "format";
 
 type formatOption = {
   .
@@ -74,7 +74,7 @@ let createFormatOption = (~auth=?, ~fragment=?, ~search=?, ~unicode=?, ()) => {
 };
 
 [@bs.module "url"] [@bs.val]
-external formatWithOption : (t, formatOption) => t = "format";
+external formatWithOption : (t, formatOption) => string = "format";
 
 [@bs.module "url"] [@bs.val] external parse : string => t = "";
 
