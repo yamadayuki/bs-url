@@ -42,8 +42,39 @@ external makeWithBase : (string, string) => t = "URL";
 
 [@bs.module "url"] [@bs.val] external format : t => t = "";
 
+type formatOption = {
+  .
+  "auth": bool,
+  "fragment": bool,
+  "search": bool,
+  "unicode": bool,
+};
+
+let createFormatOption = (~auth=?, ~fragment=?, ~search=?, ~unicode=?, ()) => {
+  "auth":
+    switch (auth) {
+    | Some(v) => v
+    | None => true
+    },
+  "fragment":
+    switch (fragment) {
+    | Some(v) => v
+    | None => true
+    },
+  "search":
+    switch (search) {
+    | Some(v) => v
+    | None => true
+    },
+  "unicode":
+    switch (unicode) {
+    | Some(v) => v
+    | None => false
+    },
+};
+
 [@bs.module "url"] [@bs.val]
-external formatWithOption : (t, 'a) => t = "format";
+external formatWithOption : (t, formatOption) => t = "format";
 
 [@bs.module "url"] [@bs.val] external parse : string => t = "";
 
