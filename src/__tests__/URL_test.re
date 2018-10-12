@@ -172,7 +172,7 @@ let () =
         test("should return the serialized URL with default option", () =>
           expect(
             URL.make(urlString)
-            |. URL.formatWithOption(URL.createFormatOption()),
+            ->(URL.formatWithOption(URL.createFormatOption())),
           )
           |> toBe("https://a:b@xn--6qqa088eba/?abc#foo")
         );
@@ -180,7 +180,9 @@ let () =
         test("should return the serialized URL excluding auth data", () =>
           expect(
             URL.make(urlString)
-            |. URL.formatWithOption(URL.createFormatOption(~auth=false, ())),
+            ->(
+                URL.formatWithOption(URL.createFormatOption(~auth=false, ()))
+              ),
           )
           |> toBe("https://xn--6qqa088eba/?abc#foo")
         );
@@ -188,9 +190,11 @@ let () =
         test("should return the serialized URL excluding search params", () =>
           expect(
             URL.make(urlString)
-            |. URL.formatWithOption(
-                 URL.createFormatOption(~search=false, ()),
-               ),
+            ->(
+                URL.formatWithOption(
+                  URL.createFormatOption(~search=false, ()),
+                )
+              ),
           )
           |> toBe("https://a:b@xn--6qqa088eba/#foo")
         );
@@ -198,9 +202,11 @@ let () =
         test("should return the serialized URL excluding fragment", () =>
           expect(
             URL.make(urlString)
-            |. URL.formatWithOption(
-                 URL.createFormatOption(~fragment=false, ()),
-               ),
+            ->(
+                URL.formatWithOption(
+                  URL.createFormatOption(~fragment=false, ()),
+                )
+              ),
           )
           |> toBe("https://a:b@xn--6qqa088eba/?abc")
         );
@@ -208,9 +214,11 @@ let () =
         test("should return the serialized URL with unicode", () =>
           expect(
             URL.make(urlString)
-            |. URL.formatWithOption(
-                 URL.createFormatOption(~unicode=true, ()),
-               ),
+            ->(
+                URL.formatWithOption(
+                  URL.createFormatOption(~unicode=true, ()),
+                )
+              ),
           )
           |> toBe({js|https://a:b@你好你好/?abc#foo|js})
         );
