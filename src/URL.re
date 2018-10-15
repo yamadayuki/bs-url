@@ -50,27 +50,17 @@ type formatOption = {
   "unicode": bool,
 };
 
+let unwrapOptWithDefault = (optionalValue, default) =>
+  switch (optionalValue) {
+  | Some(v) => v
+  | None => default
+  };
+
 let createFormatOption = (~auth=?, ~fragment=?, ~search=?, ~unicode=?, ()) => {
-  "auth":
-    switch (auth) {
-    | Some(v) => v
-    | None => true
-    },
-  "fragment":
-    switch (fragment) {
-    | Some(v) => v
-    | None => true
-    },
-  "search":
-    switch (search) {
-    | Some(v) => v
-    | None => true
-    },
-  "unicode":
-    switch (unicode) {
-    | Some(v) => v
-    | None => false
-    },
+  "auth": unwrapOptWithDefault(auth, true),
+  "fragment": unwrapOptWithDefault(fragment, true),
+  "search": unwrapOptWithDefault(search, true),
+  "unicode": unwrapOptWithDefault(unicode, false),
 };
 
 [@bs.module "url"] [@bs.val]
