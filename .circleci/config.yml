@@ -49,6 +49,6 @@ jobs:
 workflows:
   node-multi-build:
     jobs:
-      - node-v6
       - node-v8
+      - node-v9
       - node-v10
