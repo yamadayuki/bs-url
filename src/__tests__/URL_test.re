@@ -165,11 +165,6 @@ let () =
           |> toBe("https://a:b@xn--6qqa088eba/?abc#foo")
         );
 
-        test("should return the serialized URL with default option", () =>
-          expect(URL.make(urlString)->URL.format_)
-          |> toBe("https://a:b@xn--6qqa088eba/?abc#foo")
-        );
-
         test("should return the serialized URL excluding auth data", () =>
           expect(URL.make(urlString) |> URL.format_(~auth=false))
           |> toBe("https://xn--6qqa088eba/?abc#foo")
