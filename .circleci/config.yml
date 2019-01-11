@@ -8,7 +8,7 @@ commands:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{ arch }}-npm-lock-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package-lock.json" }}
+            - v2-1-{{ arch }}-npm-lock-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package-lock.json" }}
 
       - run:
           name: Install dependencies
@@ -17,7 +17,7 @@ commands:
       - save_cache:
           paths:
             - node_modules
-          key: v{{ .Environment.CIRCLE_CACHE_VERSION }}-{{ arch }}-npm-lock-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package-lock.json" }}
+          key: v2-1-{{ arch }}-npm-lock-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package-lock.json" }}
 
       # run tests!
       - run:
