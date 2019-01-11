@@ -17,29 +17,8 @@ let toString: t => string;
 let toJSON: t => string;
 let domainToASCII: string => string;
 let domainToUnicode: string => string;
-let format_: t => string;
-type formatOption = {
-  .
-  "auth": bool,
-  "fragment": bool,
-  "search": bool,
-  "unicode": bool,
-};
-let createFormatOption:
-  (
-    ~auth: bool=?,
-    ~fragment: bool=?,
-    ~search: bool=?,
-    ~unicode: bool=?,
-    unit
-  ) =>
-  {
-    .
-    "auth": bool,
-    "fragment": bool,
-    "search": bool,
-    "unicode": bool,
-  };
-let formatWithOption: (t, formatOption) => string;
+let format_:
+  (~auth: bool=?, ~fragment: bool=?, ~search: bool=?, ~unicode: bool=?, t) =>
+  string;
 let parse: string => t;
 let resolve: (string, string) => t;
