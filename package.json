@@ -1,7 +1,7 @@
 {
   "name": "@yamadayuki/bs-url",
   "description": "url module bindings for ReasonML",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "yamadayuki",
   "bugs": "https://github.com/yamadayuki/bs-url/issues",
   "devDependencies": {
