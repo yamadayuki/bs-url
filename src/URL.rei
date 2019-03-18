@@ -17,7 +17,7 @@ let toString: t => string;
 let toJSON: t => string;
 let domainToASCII: string => string;
 let domainToUnicode: string => string;
-let format_:
+let format:
   (~auth: bool=?, ~fragment: bool=?, ~search: bool=?, ~unicode: bool=?, t) =>
   string;
 let parse: string => t;

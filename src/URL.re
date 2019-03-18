@@ -46,7 +46,7 @@ let unwrapOptWithDefault = (optionalValue, default) =>
   | None => default
   };
 
-let format_ = (~auth=?, ~fragment=?, ~search=?, ~unicode=?, t) =>
+let format = (~auth=?, ~fragment=?, ~search=?, ~unicode=?, t) =>
   formatInternal(
     t,
     {

@@ -161,27 +161,27 @@ let () =
         let urlString = {js|https://a:b@你好你好?abc#foo|js};
 
         test("should return the serialized URL", () =>
-          expect(URL.make(urlString) |> URL.format_)
+          expect(URL.make(urlString) |> URL.format)
           |> toBe("https://a:b@xn--6qqa088eba/?abc#foo")
         );
 
         test("should return the serialized URL excluding auth data", () =>
-          expect(URL.make(urlString) |> URL.format_(~auth=false))
+          expect(URL.make(urlString) |> URL.format(~auth=false))
           |> toBe("https://xn--6qqa088eba/?abc#foo")
         );
 
         test("should return the serialized URL excluding search params", () =>
-          expect(URL.make(urlString) |> URL.format_(~search=false))
+          expect(URL.make(urlString) |> URL.format(~search=false))
           |> toBe("https://a:b@xn--6qqa088eba/#foo")
         );
 
         test("should return the serialized URL excluding fragment", () =>
-          expect(URL.make(urlString) |> URL.format_(~fragment=false))
+          expect(URL.make(urlString) |> URL.format(~fragment=false))
           |> toBe("https://a:b@xn--6qqa088eba/?abc")
         );
 
         test("should return the serialized URL with unicode", () =>
-          expect(URL.make(urlString) |> URL.format_(~unicode=true))
+          expect(URL.make(urlString) |> URL.format(~unicode=true))
           |> toBe({js|https://a:b@你好你好/?abc#foo|js})
         );
       });
