@@ -5,26 +5,28 @@ type t;
 external makeWithBase: (string, string) => t = "URL";
 
 /* Members */
-[@bs.get] external hash: t => string = "";
-[@bs.get] external host: t => string = "";
-[@bs.get] external hostname: t => string = "";
-[@bs.get] external href: t => string = "";
-[@bs.get] external origin: t => string = "";
-[@bs.get] external password: t => string = "";
-[@bs.get] external pathname: t => string = "";
-[@bs.get] external port: t => string = "";
-[@bs.get] external protocol: t => string = "";
-[@bs.get] external search: t => string = "";
-[@bs.get] external searchParams: t => URLSearchParams.t = "";
-[@bs.get] external username: t => string = "";
+[@bs.get] external getHash: t => string = "hash";
+[@bs.get] external getHost: t => string = "host";
+[@bs.get] external getHostname: t => string = "hostname";
+[@bs.get] external getHref: t => string = "href";
+[@bs.get] external getOrigin: t => string = "origin";
+[@bs.get] external getPassword: t => string = "password";
+[@bs.get] external getPathname: t => string = "pathname";
+[@bs.get] external getPort: t => string = "port";
+[@bs.get] external getProtocol: t => string = "protocol";
+[@bs.get] external getSearch: t => string = "search";
+[@bs.get] external getSearchParams: t => URLSearchParams.t = "searchParams";
+[@bs.get] external getUsername: t => string = "username";
 
 /* Instance Methods */
-[@bs.send] external toString: t => string = "";
-[@bs.send] external toJSON: t => string = "";
+[@bs.send] external toString: t => string = "toString";
+[@bs.send] external toJSON: t => string = "toJSON";
 
 /* Static methods */
-[@bs.module "url"] [@bs.val] external domainToASCII: string => string = "";
-[@bs.module "url"] [@bs.val] external domainToUnicode: string => string = "";
+[@bs.module "url"] [@bs.val]
+external domainToASCII: string => string = "domainToASCII";
+[@bs.module "url"] [@bs.val]
+external domainToUnicode: string => string = "domainToUnicode";
 [@bs.module "url"] [@bs.val]
 external formatInternal:
   (
@@ -56,5 +58,6 @@ let format = (~auth=?, ~fragment=?, ~search=?, ~unicode=?, t) =>
       "unicode": unwrapOptWithDefault(unicode, false),
     },
   );
-[@bs.module "url"] [@bs.val] external parse: string => t = "";
-[@bs.module "url"] [@bs.val] external resolve: (string, string) => t = "";
+[@bs.module "url"] [@bs.val] external parse: string => t = "parse";
+[@bs.module "url"] [@bs.val]
+external resolve: (string, string) => t = "resolve";

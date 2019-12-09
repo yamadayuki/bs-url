@@ -37,63 +37,63 @@ let () =
 
       describe("hash", () =>
         test("should return fragment portion of the URL", () =>
-          expect(url |> URL.hash) |> toBe("#bar")
+          expect(url |> URL.getHash) |> toBe("#bar")
         )
       );
 
       describe("host", () =>
         test("should return host portion of the URL", () =>
-          expect(url |> URL.host) |> toBe("example.org:8080")
+          expect(url |> URL.getHost) |> toBe("example.org:8080")
         )
       );
 
       describe("hostname", () =>
         test("should return hostname portion of the URL", () =>
-          expect(url |> URL.hostname) |> toBe("example.org")
+          expect(url |> URL.getHostname) |> toBe("example.org")
         )
       );
 
       describe("href", () =>
         test("should return serialized URL", () =>
-          expect(url |> URL.href)
+          expect(url |> URL.getHref)
           |> toBe("https://abc:xyz@example.org:8080/foo#bar")
         )
       );
 
       describe("origin", () =>
         test("should return URL's origin", () =>
-          expect(url |> URL.origin) |> toBe("https://example.org:8080")
+          expect(url |> URL.getOrigin) |> toBe("https://example.org:8080")
         )
       );
 
       describe("password", () =>
         test("should return password portion of the URL", () =>
-          expect(url |> URL.password) |> toBe("xyz")
+          expect(url |> URL.getPassword) |> toBe("xyz")
         )
       );
 
       describe("pathname", () =>
         test("should return path portion of the URL", () =>
-          expect(url |> URL.pathname) |> toBe("/foo")
+          expect(url |> URL.getPathname) |> toBe("/foo")
         )
       );
 
       describe("port", () =>
         test("should return port portion of the URL", () =>
-          expect(url |> URL.port) |> toBe("8080")
+          expect(url |> URL.getPort) |> toBe("8080")
         )
       );
 
       describe("protocol", () =>
         test("should return protocol portion of the URL", () =>
-          expect(url |> URL.protocol) |> toBe("https:")
+          expect(url |> URL.getProtocol) |> toBe("https:")
         )
       );
 
       describe("search", () =>
         test("should return serialized query portion of the URL", () => {
           let url = URL.make("https://abc:xyz@example.org:8080/?foo=bar");
-          expect(url |> URL.search) |> toBe("?foo=bar");
+          expect(url |> URL.getSearch) |> toBe("?foo=bar");
         })
       );
 
@@ -102,7 +102,7 @@ let () =
           "should return object repesenting the query parameters of the URL",
           () => {
           let url = URL.make("https://abc:xyz@example.org:8080/?foo=bar");
-          expect(url |> URL.searchParams |> URLSearchParams.toString)
+          expect(url |> URL.getSearchParams |> URLSearchParams.toString)
           |> toBe(
                URLSearchParams.make("?foo=bar") |> URLSearchParams.toString,
              );
@@ -111,7 +111,7 @@ let () =
 
       describe("username", () =>
         test("should return username portion of the URL", () =>
-          expect(url |> URL.username) |> toBe("abc")
+          expect(url |> URL.getUsername) |> toBe("abc")
         )
       );
     });
