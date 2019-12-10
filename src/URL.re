@@ -23,7 +23,8 @@ external protocol: t => option(string) = "protocol";
 [@bs.get] [@bs.return nullable]
 external search: t => option(string) = "search";
 [@bs.get] [@bs.return nullable] external query: t => option(string) = "query";
-[@bs.get] external searchParams: t => URLSearchParams.t = "searchParams";
+[@bs.get] [@bs.return nullable]
+external searchParams: t => option(URLSearchParams.t) = "searchParams";
 [@bs.get] [@bs.return nullable]
 external slashes: t => option(bool) = "slashes";
 [@bs.get] [@bs.return nullable]

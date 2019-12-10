@@ -120,17 +120,28 @@ let () =
         })
       );
 
-      describe("searchParams", () =>
+      describe("searchParams", () => {
         test(
           "should return object repesenting the query parameters of the URL",
           () => {
           let url = URL.make("https://abc:xyz@example.org:8080/?foo=bar");
-          expect(url |> URL.searchParams |> URLSearchParams.toString)
-          |> toBe(
-               URLSearchParams.make("?foo=bar") |> URLSearchParams.toString,
-             );
-        })
-      );
+          switch (URL.searchParams(url)) {
+          | Some(params) =>
+            expect(URLSearchParams.toString(params))
+            |> toBe(
+                 URLSearchParams.make("?foo=bar") |> URLSearchParams.toString,
+               )
+          | None => fail("should not return None here")
+          };
+        });
+        test("should return None when using URL.parse", () => {
+          let url = URL.parse("https://abc:xyz@example.org:8080/?foo=bar");
+          switch (URL.searchParams(url)) {
+          | Some(_) => fail("should return None here")
+          | None => pass
+          };
+        });
+      });
 
       describe("username", () =>
         test("should return username portion of the URL", () =>
